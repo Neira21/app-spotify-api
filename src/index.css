@@ -1,0 +1,7 @@
+@import url(./shared/globalStyles.css);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
