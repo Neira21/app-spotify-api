@@ -5,7 +5,7 @@ const authEndpoint = import.meta.env.VITE_AUTH_ENDPOINT;
 const clientId = import.meta.env.VITE_CLIENT_ID;
 const redirectUri = import.meta.env.VITE_REDIRECT_URI;
 
-const scopes = ["user-library-read", "playlist-read-private", "playlist-modify-private", "playlist-modify-public"]
+const scopes = ["user-library-read", "user-library-modify", "playlist-read-private", "playlist-modify-private", "playlist-modify-public"]
 
 const response_type = "token";
 

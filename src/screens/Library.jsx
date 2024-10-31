@@ -35,7 +35,7 @@ const Library = () => {
 
   return (
     <div className="screen-container">
-      <div className="w-[100%] h-[94%] px-[4%] flex flex-wrap overflow-y-auto justify-start gap-5 mt-4">
+      <div className="w-[100%] h-[94%] flex flex-wrap overflow-y-auto justify-start gap-5 mt-4">
         {playlists?.map((item) => {
           return (
             <div

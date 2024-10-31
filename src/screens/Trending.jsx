@@ -3,12 +3,16 @@ import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import apiClient from "../../spotify";
 
+import useDebounce from "../utils/useDebounce";
+
 const Trending = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [tracks, setTracks] = useState([]);
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+
+  const debounceSearch = useDebounce(search, 500);
 
   const getTracks = () => {
     try {
@@ -48,13 +52,13 @@ const Trending = () => {
 
   useEffect(() => {
     const searchTrack = () => {
-      if (search === "") return;
-      apiClient.get(`/search?q=${search}&type=track`).then((data) => {
+      if (debounceSearch === "") return;
+      apiClient.get(`/search?q=${debounceSearch}&type=track`).then((data) => {
         setSearchResults(data.data.tracks.items);
       });
     };
     searchTrack();
-  }, [search]);
+  }, [debounceSearch]);
 
   return (
     /* scroll y */
@@ -62,7 +66,7 @@ const Trending = () => {
       <h1 className="text-center text-[40px] my-5">Lista de Canciones</h1>
 
       <div className="w-full flex ">
-        <h3 className="mr-20">Busque una canción para agregar a la lista</h3>
+        <h3 className="mr-20">Escriba una canción, álbumn o artista</h3>
         <input
           type="text"
           className="text-black w-[20%]"

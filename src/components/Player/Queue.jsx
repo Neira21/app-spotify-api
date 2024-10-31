@@ -8,7 +8,7 @@ const Queue = ({ tracks, setCurrentTrack, currentTrack }) => {
   };
 
   return (
-    <div className="flex w-[100%] h-[25%] rounded-[30px] rounded-tr-[8px] bg-[#3b4461] opacity-1 flex-col justify-center items-center mb-2">
+    <div className="flex w-[100%] h-[20%] rounded-[30px] rounded-tr-[8px] bg-[#3b4461] opacity-1 flex-col justify-center items-center mb-2">
       <div className="flex h-[85%] w-[90%] flex-col justify-between">
         <p className="text-[20px] font-[700]">Songs</p>
         <div className="overflow-auto">

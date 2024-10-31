@@ -24,7 +24,10 @@ const Player = () => {
 
   useEffect(() => {
     try {
-      if (location.state) {
+      if (location.state?.track) {
+        // Si hay un track en el estado, reproducirlo
+        setCurrentTrack(location.state.track);
+      } else if (location.state?.id) {
         const { id } = location.state;
         apiClient.get(`/playlists/${id}/tracks`).then((data) => {
           setTracks(data.data.items);
@@ -39,6 +42,7 @@ const Player = () => {
           });
       }
     } catch (error) {
+      console.error("Error al obtener las canciones de la playlist:", error);
       console.error(error);
     }
   }, [location.state]);
